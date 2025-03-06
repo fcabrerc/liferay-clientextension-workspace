@@ -1,0 +1,15 @@
+assemble:
+    - from: dist/angular-client-extension
+      into: static
+angular-client-extension:
+    cssURLs:
+        - browser/styles*.css
+    friendlyURLMapping: angular-client-extension
+    htmlElementName: angular-client-extension
+    instanceable: false
+    name: angular-client-extension-name
+    portletCategoryName: category.client-extensions
+    type: customElement
+    urls:
+        - browser/main*.js
+    useESM: true

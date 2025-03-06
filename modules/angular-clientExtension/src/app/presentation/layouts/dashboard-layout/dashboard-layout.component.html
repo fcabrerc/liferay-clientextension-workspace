@@ -1,0 +1,42 @@
+<!-- Header extern 1 -->
+<!-- Afegim el header que tenim compartit amb la resta de mòduls -->
+<!-- <shared-header></shared-header> -->
+
+<!-- <mat-sidenav-container fullscreen> -->
+<mat-sidenav-container>
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav mode="push" [style]="{ width: '250px' }">
+    <mat-toolbar>
+      <span>Menú</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list class="bg-black-alpha-50">
+      @for (route of routes; track route.path) {
+        <app-sidebar-menu-item
+          [description]="route.data!['description']"
+          [icon]="route.data!['icon']"
+          [title]="route.data!['title']"
+          [path]="route.path!"
+        />
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+  <!-- Header intern 1 -->
+  <mat-toolbar color="primary">
+    <span>Dashboard</span>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+  </mat-toolbar>
+  <!-- Cos de la pàgina -->
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
+
+<!-- footer extern -->
+<!-- <shared-footer></shared-footer> -->
